@@ -4,7 +4,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_ver"
     implementation "com.google.android.material:material:$material_ver"
     implementation "androidx.preference:preference-ktx:$preference_ver"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation "junit:junit:$junit_ver"
     androidTestImplementation "androidx.test.ext:junit:$test_junit_ver"
     androidTestImplementation "androidx.test.espresso:espresso-core:$test_espresso_ver"
