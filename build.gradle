@@ -27,11 +27,11 @@ buildscript {
 
         //Network
         retrofit_ver = "2.9.0"
-        okhttp_ver = "4.9.0"
-        gson_ver = "2.8.6"
+        okhttp_ver = "5.0.0-alpha.2"
+        gson_ver = "2.8.8"
 
         //Database
-        room_ver = "2.2.6"
+        room_ver = "2.4.2"
 
         //Coroutine Flow
         coroutine_ver = "1.5.2"
