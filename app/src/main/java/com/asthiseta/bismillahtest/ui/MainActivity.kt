@@ -1,7 +1,8 @@
-package com.asthiseta.bismillahtest
+package com.asthiseta.bismillahtest.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.asthiseta.bismillahtest.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
