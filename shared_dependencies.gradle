@@ -37,4 +37,7 @@ dependencies {
     //Fancy Toast
     implementation 'io.github.shashank02051997:FancyToast:2.0.1'
 
+    //Lottie
+    implementation "com.airbnb.android:lottie:$lottie_ver"
+
 }

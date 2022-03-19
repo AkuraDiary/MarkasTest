@@ -39,6 +39,9 @@ buildscript {
         //Dependency Injection
         koin_ver = "2.1.6"
 
+        //Lottie
+        lottie_ver = "3.4.1"
+
     }
 
     dependencies {
