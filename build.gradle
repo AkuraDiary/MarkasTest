@@ -34,7 +34,7 @@ buildscript {
         room_ver = "2.2.6"
 
         //Coroutine Flow
-        coroutine_ver = "1.4.2"
+        coroutine_ver = "1.5.2"
 
         //Dependency Injection
         koin_ver = "2.1.6"
