@@ -13,4 +13,6 @@
     <string name="exp_publicRepos">pub repos</string>
     <string name="exp_realName">real name</string>
     <string name="not_found">User Not Found</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
