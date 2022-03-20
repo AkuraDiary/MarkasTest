@@ -12,4 +12,5 @@
     <string name="exp_following">detail following</string>
     <string name="exp_publicRepos">pub repos</string>
     <string name="exp_realName">real name</string>
+    <string name="not_found">User Not Found</string>
 </resources>
