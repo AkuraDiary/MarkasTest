@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <data>
+
         <variable
             name="data"
             type="com.asthiseta.core.domain.model.User" />
@@ -13,13 +15,12 @@
 
     <ImageView
         android:id="@+id/list_avatarUrl"
-        android:layout_width="70sp"
-        android:layout_height="70sp"
-        android:layout_margin="8dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
+        android:src="@drawable/ic_user"
         android:transitionName="imageView_trans"
-        app:avatar='@{data.avatarUrl ?? "" }'
-        android:src="@drawable/ic_user"/>
+        app:avatar='@{data.avatarUrl ?? "" }' />
 
 </layout>
