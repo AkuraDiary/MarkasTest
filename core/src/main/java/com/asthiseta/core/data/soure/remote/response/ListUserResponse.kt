@@ -1,4 +1,8 @@
 package com.asthiseta.core.data.soure.remote.response
 
-class ListUserResponse {
-}
+import com.google.gson.annotations.SerializedName
+
+data class ListUserResponse(
+    @field:SerializedName("items")
+    val items : List<UserResponse>
+)
