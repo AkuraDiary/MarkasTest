@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/gallery_destination"
-        android:name="com.asthiseta.bismillahtest.GalleryFragment"
+        android:name="com.asthiseta.bismillahtest.galeri.GalleryFragment"
         android:label="gallery_fragment"
         tools:layout="@layout/fragment_gallery" >
         <action

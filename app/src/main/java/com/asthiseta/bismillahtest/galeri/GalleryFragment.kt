@@ -1,4 +1,4 @@
-package com.asthiseta.bismillahtest
+package com.asthiseta.bismillahtest.galeri
 
 
 import androidx.fragment.app.Fragment
