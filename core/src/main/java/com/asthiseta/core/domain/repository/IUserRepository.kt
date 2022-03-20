@@ -9,7 +9,7 @@ interface IUserRepository {
 
     fun getAllFollowers(username: String): Flow<Resource<List<User>>>
 
-    fun getAllFollowing(username: String): Flow<Resource<User>>
+    fun getAllFollowing(username: String): Flow<Resource<List<User>>>
 
     //fun getDetailUser(username: String): Flow<Resource<User>>
 
