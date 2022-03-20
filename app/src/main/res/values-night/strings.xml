@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="galery">Galeri</string>
+    <string name="home">Beranda</string>
+    <string name="exp_type">tipe</string>
+    <string name="exp_name">nama</string>
+    <string name="exp_location">lokasi</string>
+    <string name="public_repos">public repository</string>
+    <string name="followers">Followers</string>
+    <string name="exp_followers">detail followers</string>
+    <string name="following">Following</string>
+    <string name="exp_following">detail following</string>
+    <string name="exp_publicRepos">pub repos</string>
+    <string name="exp_realName">real name</string>
+</resources>
