@@ -16,6 +16,7 @@ import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
 import com.asthiseta.bismillahtest.util.ShowState
+import com.asthiseta.core.data.Resource
 import com.asthiseta.core.ui.UserAdapter
 import org.koin.android.ext.android.getKoin
 import org.koin.android.viewmodel.ViewModelParameter
@@ -73,7 +74,19 @@ class HomeFragment : Fragment(), ShowState {
     }
 
     private fun observeHome() {
-        TODO("Not yet implemented")
+        homeVM.users.observe(viewLifecycleOwner){
+            if (it != null) {
+                when(it) {
+                    is Resource.Success -> {
+                        onSuccessState(homeFragmentBinding = homeBinding)
+                        it.data?.let { data -> homeAdapter.setData(data) }
+                    }
+                    is Resource.Loading -> onLoadingState(homeFragmentBinding = homeBinding)
+                    is Resource.Error -> onErrorState(homeFragmentBinding = homeBinding, message = it.message)
+                }
+            }
+        }
+
     }
 
     override fun onSuccessState(
