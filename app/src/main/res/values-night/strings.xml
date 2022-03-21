@@ -13,4 +13,5 @@
     <string name="exp_publicRepos">pub repos</string>
     <string name="exp_realName">real name</string>
     <string name="not_found">User Not Found</string>
+    <string name="auth_usrname">Auth Username</string>
 </resources>
