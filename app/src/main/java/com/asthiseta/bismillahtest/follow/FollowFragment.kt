@@ -61,14 +61,22 @@ class FollowFragment : Fragment() , ShowState{
         homeFragmentBinding: HomeFragmentBinding?,
         followFragmentBinding: FollowFragmentBinding?
     ) {
-        TODO("Not yet implemented")
+        followFragmentBinding?.apply {
+            errLayout.mainNotFound.visibility = View.GONE
+            progress.visibility = View.GONE
+            recylerFollow.visibility = View.VISIBLE
+        }
     }
 
     override fun onLoadingState(
         homeFragmentBinding: HomeFragmentBinding?,
         followFragmentBinding: FollowFragmentBinding?
     ) {
-        TODO("Not yet implemented")
+        followFragmentBinding?.apply {
+            errLayout.mainNotFound.visibility = View.GONE
+            progress.visibility = View.VISIBLE
+            recylerFollow.visibility = View.GONE
+        }
     }
 
     override fun onErrorState(
@@ -76,7 +84,20 @@ class FollowFragment : Fragment() , ShowState{
         followFragmentBinding: FollowFragmentBinding?,
         message: String?
     ) {
-        TODO("Not yet implemented")
+        followFragmentBinding?.apply {
+            errLayout.apply {
+                mainNotFound.visibility = View.VISIBLE
+                emptyText.text = message ?: resources.getString(R.string.not_found)
+            }
+            progress.visibility = View.GONE
+            recylerFollow.visibility = View.GONE
+        }
+    }
+
+    override fun onDestroyView() {
+        followBinding.recylerFollow.adapter = null
+        _followBinding = null
+        super.onDestroyView()
     }
 
     companion object{
