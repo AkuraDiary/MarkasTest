@@ -9,6 +9,7 @@ import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
 import com.asthiseta.bismillahtest.util.ShowState
 import com.asthiseta.bismillahtest.util.TypeView
+import com.asthiseta.core.data.Resource
 import com.asthiseta.core.ui.UserAdapter
 import com.shashank.sony.fancytoastlib.FancyToast
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -54,7 +55,21 @@ class FollowFragment : Fragment() , ShowState{
     }
 
     private fun observeFollow() {
-        TODO("Not yet implemented")
+        followViewModel.favoriteUsers.observe(viewLifecycleOwner){
+            it.let {
+                when(it){
+                    is Resource.Success ->
+                        if (!it.data.isNullOrEmpty()) {
+                            onSuccessState(followFragmentBinding = followBinding)
+                            followAdapter.run { setData(it.data) }
+                        } else {
+                            onErrorState(followFragmentBinding = followBinding, message =  resources.getString(R.string.not_have, username, type))
+                        }
+                    is Resource.Loading -> onLoadingState(followFragmentBinding = followBinding)
+                    is Resource.Error -> onErrorState(followFragmentBinding = followBinding, message = it.message)
+                }
+            }
+        }
     }
 
     override fun onSuccessState(
