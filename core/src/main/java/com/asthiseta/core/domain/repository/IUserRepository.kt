@@ -14,4 +14,5 @@ interface IUserRepository {
     //fun getDetailUser(username: String): Flow<Resource<User>>
 
     //fun getDetailState(username: String): Flow<User>?
+    fun getDetailUser(username: String): Flow<Resource<User>>
 }

@@ -36,12 +36,24 @@ class UserRepository(private val remoteDataSource : RemoteDataSource) : IUserRep
             }
 
             override suspend fun createCall(): Flow<ApiResponse<List<UserResponse>>> {
+                return remoteDataSource.getAllFollowers(username)
+            }
+        }.asFlow()
+    }
+
+    override fun getAllFollowing(username: String):Flow<Resource<List<User>>> {
+        return object : NetOnlyResource<List<User>, List<UserResponse>>() {
+            override fun loadFromNetwork(data: List<UserResponse>): Flow<List<User>> {
+                return DataMapper.mapResponsesToDomain(data)
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<List<UserResponse>>> {
                 return remoteDataSource.getAllFollowing(username)
             }
         }.asFlow()
     }
 
-    override fun getAllFollowing(username: String): Flow<Resource<User>> {
+    override fun getDetailUser(username: String): Flow<Resource<User>> {
         return object : NetOnlyResource<User, UserResponse>() {
             override fun loadFromNetwork(data: UserResponse): Flow<User> {
                 return DataMapper.mapResponseToDomain(data)
@@ -53,10 +65,7 @@ class UserRepository(private val remoteDataSource : RemoteDataSource) : IUserRep
 
         }.asFlow()
     }
-
-    /*override fun getDetailUser(username: String): Flow<Resource<User>> {
-
-    }
+    /*
 
     override fun getDetailState(username: String): Flow<User>? {
 

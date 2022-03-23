@@ -11,5 +11,5 @@ interface UserUseCase {
 
     fun getAllFollowing(username: String): Flow<Resource<List<User>>>
 
-    //fun getDetailUser(username: String): Flow<Resource<User>>
+    fun getDetailUser(username: String): Flow<Resource<User>>
 }
