@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.DetailFragmentBinding
+import com.asthiseta.bismillahtest.follow.FollowFragment
+import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -19,6 +22,17 @@ class DetailFragment : Fragment() {
     private val args: DetailFragmentArgs by navArgs()
     private val detailVM : DetailViewModel by viewModel()
 
+    inner class PagerAdapter(
+        private val tabList: Array<String>,
+        private val username: String,
+        fragment: Fragment
+    ) : FragmentStateAdapter(fragment) {
+
+        override fun getItemCount(): Int = tabList.size
+
+        override fun createFragment(position: Int): Fragment =
+            FollowFragment.newInstance(username, tabList[position])
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +49,24 @@ class DetailFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val tablist = arrayOf(resources.getString(R.string.followers), resources.getString(R.string.following))
+
+        pagerAdapter = PagerAdapter(tablist, args.username, this)
+        detailBinding.pager.adapter = pagerAdapter
+
+        TabLayoutMediator(detailBinding.tabs, detailBinding.pager){ tab, position ->
+            tab.text = tablist[position]
+        }.attach()
+    }
+
     private fun observeDetail() {
         TODO("Not yet implemented")
+    }
+
+    override fun onDestroyView() {
+        _detailBinding = null
+        super.onDestroyView()
     }
 }
