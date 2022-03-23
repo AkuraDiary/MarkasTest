@@ -11,6 +11,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.DetailFragmentBinding
 import com.asthiseta.bismillahtest.follow.FollowFragment
+import com.asthiseta.core.data.Resource
+import com.asthiseta.core.domain.model.User
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -21,6 +23,7 @@ class DetailFragment : Fragment() {
     private lateinit var pagerAdapter: PagerAdapter
     private val args: DetailFragmentArgs by navArgs()
     private val detailVM : DetailViewModel by viewModel()
+    //private lateinit var user: User
 
     inner class PagerAdapter(
         private val tabList: Array<String>,
@@ -62,7 +65,17 @@ class DetailFragment : Fragment() {
     }
 
     private fun observeDetail() {
-        TODO("Not yet implemented")
+        detailVM.detailUsers(args.username).observe(viewLifecycleOwner){
+            when(it){
+                is Resource.Success -> {
+                    //user = it.data!!
+                    detailBinding.data = it.data
+                }
+                else -> {
+                    detailBinding.content.visibility = View.GONE
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
