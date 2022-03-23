@@ -16,6 +16,8 @@ class UserInteractor(private val userRepository: IUserRepository) : UserUseCase 
     override fun getAllFollowing(username: String): Flow<Resource<List<User>>> =
         userRepository.getAllFollowing(username)
 
+    override fun getDetailUser(username: String): Flow<Resource<User>> = userRepository.getDetailUser(username)
+
     /*override fun getDetailUser(username: String): Flow<Resource<User>> {
 
     }*/
