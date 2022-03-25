@@ -43,7 +43,7 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val actionBar = (activity as AppCompatActivity).supportActionBar
-        actionBar?.title = args.username
+        actionBar?.title = args.Username
 
         _detailBinding = DetailFragmentBinding.inflate(layoutInflater, container, false)
         detailBinding.lifecycleOwner = viewLifecycleOwner
@@ -56,7 +56,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val tablist = arrayOf(resources.getString(R.string.followers), resources.getString(R.string.following))
 
-        pagerAdapter = PagerAdapter(tablist, args.username, this)
+        pagerAdapter = PagerAdapter(tablist, args.Username, this)
         detailBinding.pager.adapter = pagerAdapter
 
         TabLayoutMediator(detailBinding.tabs, detailBinding.pager){ tab, position ->
@@ -65,7 +65,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun observeDetail() {
-        detailVM.detailUsers(args.username).observe(viewLifecycleOwner){
+        detailVM.detailUsers(args.Username).observe(viewLifecycleOwner){
             when(it){
                 is Resource.Success -> {
                     //user = it.data!!
