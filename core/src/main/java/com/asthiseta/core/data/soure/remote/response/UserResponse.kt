@@ -1,35 +1,35 @@
 package com.asthiseta.core.data.soure.remote.response
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 data class UserResponse(
-    @field:SerializedName("id")
+    @field:Json(name = "id")
     val id: Int?,
 
-    @field:SerializedName("login")
+    @field:Json(name="login")
     val login: String?,
 
-    @field:SerializedName("html_url")
+    @field:Json(name="html_url")
     val url: String?,
 
-    @field:SerializedName("avatar_url")
+    @field:Json(name="avatar_url")
     val avatarUrl: String?,
 
-    @field:SerializedName("name")
+    @field:Json(name="name")
     val name: String?,
 
-    @field:SerializedName("location")
+    @field:Json(name="location")
     val location: String?,
 
-    @field:SerializedName("type")
+    @field:Json(name="type")
     val type: String?,
 
-    @field:SerializedName("public_repos")
+    @field:Json(name="public_repos")
     val publicRepos: Int?,
 
-    @field:SerializedName("followers")
+    @field:Json(name="followers")
     val followers: Int?,
 
-    @field:SerializedName("following")
+    @field:Json(name="following")
     val following: Int?,
 )
