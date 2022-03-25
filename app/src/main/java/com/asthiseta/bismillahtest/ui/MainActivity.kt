@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        setSupportActionBar(mainBinding.toolbar)
+        //setSupportActionBar(mainBinding.toolbar)
 
         navController = findNavController(R.id.nav_host)
         NavigationUI.setupWithNavController(mainBinding.bottomNavView, navController)
