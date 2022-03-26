@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.DetailFragmentBinding
@@ -43,12 +44,13 @@ class FollowFragment : Fragment() , ShowState{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _followBinding = FollowFragmentBinding.inflate(layoutInflater, container, false)
+        followBinding.lifecycleOwner = viewLifecycleOwner
         val view = followBinding.root
         observeFollow()
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -67,7 +69,6 @@ class FollowFragment : Fragment() , ShowState{
             resources.getString(R.string.followers) -> followViewModel.setFollow(username, TypeView.FOLLOWER)
             else -> onErrorState(followFragmentBinding = followBinding, message = null)
         }
-
 
     }
 

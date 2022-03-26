@@ -8,6 +8,7 @@ import com.asthiseta.core.data.soure.remote.network.ClientAPI
 import com.asthiseta.core.domain.repository.IUserRepository
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
