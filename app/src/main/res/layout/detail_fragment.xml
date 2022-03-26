@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/teal_200"
-            android:padding="8dp"
+            android:padding="16dp"
             tools:context=".ui.fragments.DetailsFragment">
 
             <ImageView
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="@{data.name??data.login}"
+                android:text="@{data.login}"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -96,20 +96,22 @@
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:visibility="visible"
                 app:layout_constraintTop_toBottomOf="@+id/tabs" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:layout_marginBottom="4dp"
+                android:layout_height="32dp"
+                android:layout_marginBottom="8dp"
                 android:background="@color/teal_200"
                 android:contentDescription="@string/following"
-                android:textSize="16sp"
+                android:padding="4dp"
                 android:visibility="visible"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 app:layout_constraintTop_toTopOf="@id/pager"
+                app:tabIndicator="@color/white"
                 app:tabTextColor="@color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
