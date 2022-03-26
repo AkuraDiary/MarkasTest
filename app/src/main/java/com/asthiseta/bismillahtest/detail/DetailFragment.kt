@@ -58,10 +58,12 @@ class DetailFragment : Fragment() {
 
         pagerAdapter = PagerAdapter(tablist, args.Username, this)
         detailBinding.pager.adapter = pagerAdapter
+        detailBinding.tabs.let {
+            TabLayoutMediator(it, detailBinding.pager){tab, position ->
+                tab.text = tablist[position]
+            }.attach()
+        }
 
-        TabLayoutMediator(detailBinding.tabs, detailBinding.pager){ tab, position ->
-            tab.text = tablist[position]
-        }.attach()
     }
 
     private fun observeDetail() {

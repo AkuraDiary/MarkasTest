@@ -17,6 +17,7 @@
     android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
@@ -66,7 +67,6 @@
                     tools:text="@string/exp_name" />
 
                 <TextView
-
                     android:id="@+id/detail_locationCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,13 +86,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/content">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="16dp"
+            android:textSize="16sp"
             android:background="@color/teal_200"
             android:contentDescription="@string/following"
             android:visibility="visible"
