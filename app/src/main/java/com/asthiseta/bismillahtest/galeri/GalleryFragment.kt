@@ -12,17 +12,14 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
 import com.asthiseta.bismillahtest.databinding.FragmentGalleryBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
 import com.asthiseta.bismillahtest.home.HomeFragmentDirections
-import com.asthiseta.bismillahtest.home.HomeViewModel
 import com.asthiseta.bismillahtest.util.ShowState
 import com.asthiseta.core.data.Resource
 import com.asthiseta.core.ui.GalleryUserAdapter
-import com.asthiseta.core.ui.UserAdapter
 import org.koin.android.ext.android.getKoin
 import org.koin.android.viewmodel.ViewModelParameter
 import org.koin.android.viewmodel.koin.getViewModel
@@ -44,7 +41,7 @@ class GalleryFragment :  Fragment(), ShowState {
     private var _galleryBinding : FragmentGalleryBinding? = null
     private val galleryBinding get() = _galleryBinding!!
     private lateinit var galleryAdapter : GalleryUserAdapter
-    private val homeVM : HomeViewModel by sharedGraphViewModel(R.id.user_navigation)
+    private val galleryVM : GalleryViewModel by sharedGraphViewModel(R.id.user_navigation)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,7 +69,7 @@ class GalleryFragment :  Fragment(), ShowState {
             )
         }
 
-        galleryBinding.recyclerHome.apply {
+        galleryBinding.recyclerGallery.apply {
             layoutManager = GridLayoutManager(context, 3)//GridLayoutManager(context, 3, false)
             adapter = galleryAdapter
         }
@@ -81,7 +78,7 @@ class GalleryFragment :  Fragment(), ShowState {
     }
 
     private fun observeHome() {
-        homeVM.users.observe(viewLifecycleOwner){
+        galleryVM.users.observe(viewLifecycleOwner){
             if (it != null) {
                 when(it) {
                     is Resource.Success -> {
@@ -101,10 +98,10 @@ class GalleryFragment :  Fragment(), ShowState {
         followFragmentBinding: FollowFragmentBinding?,
         galleryFragmentBinding: FragmentGalleryBinding?
     ) {
-        homeFragmentBinding?.apply {
+        galleryFragmentBinding?.apply {
             errLayout.mainNotFound.visibility = View.GONE
             progress.visibility = View.GONE
-            recyclerHome.visibility = View.VISIBLE
+            recyclerGallery.visibility = View.VISIBLE
         }
     }
 
@@ -113,10 +110,10 @@ class GalleryFragment :  Fragment(), ShowState {
         followFragmentBinding: FollowFragmentBinding?,
         galleryFragmentBinding: FragmentGalleryBinding?
     ) {
-        homeFragmentBinding?.apply {
+        galleryFragmentBinding?.apply {
             errLayout.mainNotFound.visibility = View.GONE
             progress.visibility = View.VISIBLE
-            recyclerHome.visibility = View.GONE
+            recyclerGallery.visibility = View.GONE
         }
     }
 
@@ -126,7 +123,7 @@ class GalleryFragment :  Fragment(), ShowState {
         galleryFragmentBinding: FragmentGalleryBinding?,
         message:String?
     ) {
-        homeFragmentBinding?.apply {
+        galleryFragmentBinding?.apply {
             errLayout.apply {
                 mainNotFound.visibility = View.VISIBLE
                 if (message == null){
@@ -136,12 +133,12 @@ class GalleryFragment :  Fragment(), ShowState {
                 }
             }
             progress.visibility = View.GONE
-            recyclerHome.visibility = View.GONE
+            recyclerGallery.visibility = View.GONE
         }
     }
 
     override fun onDestroyView() {
-        galleryBinding.recyclerHome.adapter = null
+        galleryBinding.recyclerGallery.adapter = null
         _galleryBinding = null
         super.onDestroyView()
     }
