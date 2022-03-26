@@ -2,13 +2,14 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
-
         <variable
             name="data"
             type="com.asthiseta.core.domain.model.User" />
     </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
 
 
     <ImageView
@@ -19,6 +20,11 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_user"
         android:transitionName="imageView_trans"
-        app:avatar='@{data.avatarUrl ?? "" }' />
+        app:avatarGallery='@{data.avatarUrl ?? "" }'
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

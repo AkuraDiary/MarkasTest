@@ -16,7 +16,6 @@ import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
 import com.asthiseta.bismillahtest.databinding.FragmentGalleryBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
-import com.asthiseta.bismillahtest.home.HomeFragmentDirections
 import com.asthiseta.bismillahtest.util.ShowState
 import com.asthiseta.core.data.Resource
 import com.asthiseta.core.ui.GalleryUserAdapter
@@ -59,8 +58,6 @@ class GalleryFragment :  Fragment(), ShowState {
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
-
-        //homeBinding.errLayout.emptyText.text
 
         galleryAdapter = GalleryUserAdapter(arrayListOf()) {username, iv ->
             findNavController().navigate(

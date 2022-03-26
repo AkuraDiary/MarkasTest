@@ -12,3 +12,10 @@ fun avatar(imageView: ImageView, avatar: String) =
         .load(avatar)
         .apply(RequestOptions.circleCropTransform()).placeholder(R.drawable.ic_user)
         .into(imageView)
+
+@BindingAdapter("avatarGallery")
+fun avatarGallery(imageView: ImageView, avatar: String) =
+    Glide.with(imageView)
+        .load(avatar)
+        .placeholder(R.drawable.ic_user)
+        .into(imageView)
