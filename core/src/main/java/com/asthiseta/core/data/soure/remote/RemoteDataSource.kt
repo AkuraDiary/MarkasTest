@@ -16,7 +16,7 @@ class RemoteDataSource(private val clientAPI: ClientAPI) {
         flow {
             try {
                 val userSearch = clientAPI.getAllUser()
-                val userArray = userSearch.items
+                val userArray = userSearch
                 if (userArray.isNullOrEmpty()) {
                     emit(ApiResponse.Error(null))
                 } else {

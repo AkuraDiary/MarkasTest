@@ -8,7 +8,7 @@ import retrofit2.http.Path
 interface ClientAPI {
 
     @GET("users")
-    suspend fun getAllUser(): ListUserResponse
+    suspend fun getAllUser(): List<UserResponse>//ListUserResponse
 
 
     @GET("users/{username}")
