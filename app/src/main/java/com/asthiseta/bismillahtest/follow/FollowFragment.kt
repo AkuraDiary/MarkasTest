@@ -1,10 +1,14 @@
 package com.asthiseta.bismillahtest.follow
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asthiseta.bismillahtest.R
+import com.asthiseta.bismillahtest.databinding.DetailFragmentBinding
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
 import com.asthiseta.bismillahtest.databinding.FragmentGalleryBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
@@ -18,7 +22,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class FollowFragment : Fragment() , ShowState{
 
     private var _followBinding : FollowFragmentBinding? = null
-    private  val followBinding get() = _followBinding!!
+    private val followBinding get() = _followBinding!!
 
     private lateinit var followAdapter: UserAdapter
     private lateinit var username: String
@@ -32,6 +36,18 @@ class FollowFragment : Fragment() , ShowState{
             username = it.getString(USERNAME).toString()
             type = it.getString(TYPE)
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        _followBinding = FollowFragmentBinding.inflate(layoutInflater, container, false)
+        val view = followBinding.root
+        observeFollow()
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +68,7 @@ class FollowFragment : Fragment() , ShowState{
             else -> onErrorState(followFragmentBinding = followBinding, message = null)
         }
 
-        observeFollow()
+
     }
 
     private fun observeFollow() {

@@ -23,7 +23,7 @@ class DetailFragment : Fragment() {
     private lateinit var pagerAdapter: PagerAdapter
     private val args: DetailFragmentArgs by navArgs()
     private val detailVM : DetailViewModel by viewModel()
-    //private lateinit var user: User
+
 
     inner class PagerAdapter(
         private val tabList: Array<String>,
@@ -41,7 +41,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar?.title = args.Username
 
@@ -69,7 +69,10 @@ class DetailFragment : Fragment() {
             when(it){
                 is Resource.Success -> {
                     //user = it.data!!
-                    detailBinding.data = it.data
+                    detailBinding.apply {
+                        data = it.data
+                        content.visibility = View.VISIBLE
+                    }
                 }
                 else -> {
                     detailBinding.content.visibility = View.GONE
