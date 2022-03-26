@@ -47,7 +47,7 @@ class FollowFragment : Fragment() , ShowState{
         _followBinding = FollowFragmentBinding.inflate(layoutInflater, container, false)
         followBinding.lifecycleOwner = viewLifecycleOwner
         val view = followBinding.root
-        observeFollow()
+
         return view
     }
 
@@ -65,11 +65,17 @@ class FollowFragment : Fragment() , ShowState{
         }
 
         when(type) {
-            resources.getString(R.string.following) -> followViewModel.setFollow(username, TypeView.FOLLOWING)
-            resources.getString(R.string.followers) -> followViewModel.setFollow(username, TypeView.FOLLOWER)
+            resources.getString(R.string.following) ->{
+                followViewModel.setFollow(username, TypeView.FOLLOWING)
+                FancyToast.makeText(context, type, FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+            }
+            resources.getString(R.string.followers) ->{
+                followViewModel.setFollow(username, TypeView.FOLLOWER)
+                FancyToast.makeText(context, type, FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+            }
             else -> onErrorState(followFragmentBinding = followBinding, message = null)
         }
-
+        observeFollow()
     }
 
     private fun observeFollow() {
