@@ -1,5 +1,6 @@
 package com.asthiseta.bismillahtest.ui
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
 
         setSupportActionBar(mainBinding.toolbar)
+        mainBinding.toolbar.apply {
+            setBackgroundColor(resources.getColor(R.color.teal_200))
+            setTitleTextColor(Color.WHITE)
+        }
 
         navController = findNavController(R.id.nav_host)
         NavigationUI.setupWithNavController(mainBinding.bottomNavView, navController)
