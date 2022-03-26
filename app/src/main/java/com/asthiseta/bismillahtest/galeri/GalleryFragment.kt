@@ -64,7 +64,7 @@ class GalleryFragment :  Fragment(), ShowState {
 
         galleryAdapter = GalleryUserAdapter(arrayListOf()) {username, iv ->
             findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToDetailFragment(username),
+                GalleryFragmentDirections.actionGalleryFragmentToDetailFragment(username),
                 FragmentNavigatorExtras(iv to username)
             )
         }
