@@ -1,6 +1,6 @@
 package com.asthiseta.core.data.soure.remote.network
 
-import com.asthiseta.core.data.soure.remote.response.ListUserResponse
+
 import com.asthiseta.core.data.soure.remote.response.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Path

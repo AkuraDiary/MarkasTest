@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
+import com.asthiseta.bismillahtest.databinding.FragmentGalleryBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
 import com.asthiseta.bismillahtest.util.ShowState
 import com.asthiseta.bismillahtest.util.TypeView
@@ -74,7 +75,8 @@ class FollowFragment : Fragment() , ShowState{
 
     override fun onSuccessState(
         homeFragmentBinding: HomeFragmentBinding?,
-        followFragmentBinding: FollowFragmentBinding?
+        followFragmentBinding: FollowFragmentBinding?,
+        galleryFragmentBinding: FragmentGalleryBinding?
     ) {
         followFragmentBinding?.apply {
             errLayout.mainNotFound.visibility = View.GONE
@@ -85,7 +87,8 @@ class FollowFragment : Fragment() , ShowState{
 
     override fun onLoadingState(
         homeFragmentBinding: HomeFragmentBinding?,
-        followFragmentBinding: FollowFragmentBinding?
+        followFragmentBinding: FollowFragmentBinding?,
+        galleryFragmentBinding: FragmentGalleryBinding?
     ) {
         followFragmentBinding?.apply {
             errLayout.mainNotFound.visibility = View.GONE
@@ -97,6 +100,7 @@ class FollowFragment : Fragment() , ShowState{
     override fun onErrorState(
         homeFragmentBinding: HomeFragmentBinding?,
         followFragmentBinding: FollowFragmentBinding?,
+        galleryFragmentBinding: FragmentGalleryBinding?,
         message: String?
     ) {
         followFragmentBinding?.apply {

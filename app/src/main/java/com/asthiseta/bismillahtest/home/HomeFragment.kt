@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
+import com.asthiseta.bismillahtest.databinding.FragmentGalleryBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
 import com.asthiseta.bismillahtest.util.ShowState
 import com.asthiseta.core.data.Resource
@@ -91,7 +92,8 @@ class HomeFragment : Fragment(), ShowState {
 
     override fun onSuccessState(
         homeFragmentBinding: HomeFragmentBinding?,
-        followFragmentBinding: FollowFragmentBinding?
+        followFragmentBinding: FollowFragmentBinding?,
+        galleryFragmentBinding: FragmentGalleryBinding?
     ) {
         homeFragmentBinding?.apply {
             errLayout.mainNotFound.visibility = View.GONE
@@ -102,7 +104,8 @@ class HomeFragment : Fragment(), ShowState {
 
     override fun onLoadingState(
         homeFragmentBinding: HomeFragmentBinding?,
-        followFragmentBinding: FollowFragmentBinding?
+        followFragmentBinding: FollowFragmentBinding?,
+        galleryFragmentBinding: FragmentGalleryBinding?
     ) {
         homeFragmentBinding?.apply {
             errLayout.mainNotFound.visibility = View.GONE
@@ -114,6 +117,7 @@ class HomeFragment : Fragment(), ShowState {
     override fun onErrorState(
         homeFragmentBinding: HomeFragmentBinding?,
         followFragmentBinding: FollowFragmentBinding?,
+        galleryFragmentBinding: FragmentGalleryBinding?,
         message:String?
     ) {
         homeFragmentBinding?.apply {
