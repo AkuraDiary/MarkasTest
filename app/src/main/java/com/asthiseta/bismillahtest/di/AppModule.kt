@@ -2,6 +2,7 @@ package com.asthiseta.bismillahtest.di
 
 import com.asthiseta.bismillahtest.detail.DetailViewModel
 import com.asthiseta.bismillahtest.follow.FollowViewModel
+import com.asthiseta.bismillahtest.galeri.GalleryViewModel
 import com.asthiseta.bismillahtest.home.HomeViewModel
 import com.asthiseta.core.domain.usecase.UserInteractor
 import com.asthiseta.core.domain.usecase.UserUseCase
@@ -16,4 +17,5 @@ val viewModelModule = module{
     viewModel { HomeViewModel(get()) }
     viewModel { FollowViewModel(get()) }
     viewModel { DetailViewModel(get()) }
+    viewModel { GalleryViewModel(get())}
 }
