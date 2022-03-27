@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/home_destination"
         android:name="com.asthiseta.bismillahtest.home.HomeFragment"
-        android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_favoriteFragment"
@@ -25,7 +24,6 @@
     <fragment
         android:id="@+id/gallery_destination"
         android:name="com.asthiseta.bismillahtest.galeri.GalleryFragment"
-        android:label="gallery_fragment"
         tools:layout="@layout/fragment_gallery" >
         <action
             android:id="@+id/action_galleryFragment_to_detailFragment"
@@ -36,7 +34,6 @@
     <fragment
         android:id="@+id/detail_destination"
         android:name="com.asthiseta.bismillahtest.detail.DetailFragment"
-        android:label="detail_fragment"
         tools:layout="@layout/detail_fragment" >
         <argument
             android:name="Username"
