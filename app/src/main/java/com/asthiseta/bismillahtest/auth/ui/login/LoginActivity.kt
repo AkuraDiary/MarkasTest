@@ -1,6 +1,7 @@
 package com.asthiseta.bismillahtest.auth.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.ActivityLoginBinding
+import com.asthiseta.bismillahtest.ui.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -92,6 +94,8 @@ class LoginActivity : AppCompatActivity() {
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
         }
     }
