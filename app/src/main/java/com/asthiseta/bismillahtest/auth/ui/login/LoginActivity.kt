@@ -12,9 +12,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
-import com.asthiseta.bismillahtest.auth.databinding.ActivityLoginBinding
-
-import com.asthiseta.bismillahtest.auth.R
+import com.asthiseta.bismillahtest.R
+import com.asthiseta.bismillahtest.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -32,8 +31,7 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.login
         val loading = binding.loading
 
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
-            .get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())[LoginViewModel::class.java]
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
