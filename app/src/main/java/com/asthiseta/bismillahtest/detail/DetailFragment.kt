@@ -12,7 +12,6 @@ import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.DetailFragmentBinding
 import com.asthiseta.bismillahtest.follow.FollowFragment
 import com.asthiseta.core.data.Resource
-import com.asthiseta.core.domain.model.User
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
 

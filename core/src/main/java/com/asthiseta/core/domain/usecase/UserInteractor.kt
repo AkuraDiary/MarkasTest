@@ -1,7 +1,6 @@
 package com.asthiseta.core.domain.usecase
 
 import com.asthiseta.core.data.Resource
-import com.asthiseta.core.data.UserRepository
 import com.asthiseta.core.domain.model.User
 import com.asthiseta.core.domain.repository.IUserRepository
 import kotlinx.coroutines.flow.Flow

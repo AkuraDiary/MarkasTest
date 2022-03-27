@@ -1,6 +1,5 @@
 package com.asthiseta.core.di
 
-import org.koin.dsl.module
 import com.asthiseta.core.BuildConfig
 import com.asthiseta.core.data.UserRepository
 import com.asthiseta.core.data.soure.remote.RemoteDataSource
@@ -8,7 +7,7 @@ import com.asthiseta.core.data.soure.remote.network.ClientAPI
 import com.asthiseta.core.domain.repository.IUserRepository
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit

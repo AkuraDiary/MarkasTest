@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asthiseta.bismillahtest.R
-import com.asthiseta.bismillahtest.databinding.DetailFragmentBinding
 import com.asthiseta.bismillahtest.databinding.FollowFragmentBinding
 import com.asthiseta.bismillahtest.databinding.FragmentGalleryBinding
 import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
@@ -46,9 +43,8 @@ class FollowFragment : Fragment() , ShowState{
     ): View {
         _followBinding = FollowFragmentBinding.inflate(layoutInflater, container, false)
         followBinding.lifecycleOwner = viewLifecycleOwner
-        val view = followBinding.root
 
-        return view
+        return followBinding.root
     }
 
 
