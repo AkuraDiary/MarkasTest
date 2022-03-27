@@ -58,7 +58,6 @@ class HomeFragment : Fragment(), ShowState {
 
         setHasOptionsMenu(true)
 
-        //homeBinding.errLayout.emptyText.text
 
         homeAdapter = UserAdapter(arrayListOf()) {username, iv ->
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(username),

@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         mainBinding.toolbar.apply {
             setBackgroundColor(resources.getColor(R.color.teal_200))
             setTitleTextColor(Color.WHITE)
+            title = getString(R.string.auth_usrname)
         }
 
         navController = findNavController(R.id.nav_host)
