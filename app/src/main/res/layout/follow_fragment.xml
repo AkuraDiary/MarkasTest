@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".follow.FollowFragment"
+        android:paddingTop="6dp"
         android:background="@color/white">
 
         <androidx.recyclerview.widget.RecyclerView
