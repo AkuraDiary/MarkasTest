@@ -1,8 +1,10 @@
 package com.asthiseta.bismillahtest.auth.signup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.asthiseta.bismillahtest.R
+import com.asthiseta.bismillahtest.auth.login.LoginActivity
 import com.asthiseta.bismillahtest.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -26,6 +28,12 @@ class SignUpActivity : AppCompatActivity() {
 
         btnSignUp.setOnClickListener {
             signUpUser()
+        }
+
+        // switching from signUp Activity to Login Activity
+        tvRedirectLogin.setOnClickListener {
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
