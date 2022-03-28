@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BismillahTest"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".auth.signup.SignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
