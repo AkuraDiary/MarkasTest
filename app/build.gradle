@@ -20,6 +20,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField('String', 'FIREBASE_API', '"AIzaSyArtK9uLBBY6viXbBuuMcPE_tQ6jN9hRjo"')
     }
 
     buildTypes {
