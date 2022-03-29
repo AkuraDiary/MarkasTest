@@ -23,8 +23,8 @@ class SignUpActivity : AppCompatActivity() {
     private var btnSignUp : Button? = null
     private var etEmail : EditText? = null
     private var etConfPass : EditText? = null
-    private var etPass : EditText? = null //binding!!.etSPassword
-    private var tvRedirectLogin : TextView? = null // binding!!.tvRedirectLogin
+    private var etPass : EditText? = null
+    private var tvRedirectLogin : TextView? = null
     private var loginIntent : Intent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
