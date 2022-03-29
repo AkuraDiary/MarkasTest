@@ -22,13 +22,16 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private var loginBinding: ActivityLoginBinding? = null
 
-    private val signUpIntent = Intent(this@LoginActivity, SignUpActivity::class.java)
-    private val homeIntent = Intent(this@LoginActivity, MainActivity::class.java)
+    private var signUpIntent : Intent? = null
+    private var homeIntent :Intent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginBinding!!.root)
+
+        signUpIntent = Intent(this@LoginActivity, SignUpActivity::class.java)
+        homeIntent = Intent(this@LoginActivity, MainActivity::class.java)
 
         tvRedirectSignUp = loginBinding!!.tvRedirectSignUp
         edtEmail = loginBinding!!.etEmailAddress

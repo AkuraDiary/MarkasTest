@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.auth.login.LoginActivity
@@ -21,15 +22,17 @@ class SignUpActivity : AppCompatActivity() {
 
     private var btnSignUp : Button? = null
     private var etEmail : EditText? = null
-    private var etConfPass = binding!!.etSConfPassword
-    private var etPass = binding!!.etSPassword
-    private var tvRedirectLogin = binding!!.tvRedirectLogin
-    private val loginIntent = Intent(this@SignUpActivity, LoginActivity::class.java)
+    private var etConfPass : EditText? = null
+    private var etPass : EditText? = null //binding!!.etSPassword
+    private var tvRedirectLogin : TextView? = null // binding!!.tvRedirectLogin
+    private var loginIntent : Intent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        loginIntent = Intent(this@SignUpActivity, LoginActivity::class.java)
 
         btnSignUp = binding!!.btnSSigned
         etEmail = binding!!.etSEmailAddress
@@ -44,15 +47,15 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         // switching from signUp Activity to Login Activity
-        tvRedirectLogin.setOnClickListener {
+        tvRedirectLogin!!.setOnClickListener {
             startActivity(loginIntent)
         }
     }
 
     private fun signUpUser() {
         val email = etEmail?.text.toString()
-        val pass = etPass.text.toString()
-        val confirmPassword = etConfPass.text.toString()
+        val pass = etPass?.text.toString()
+        val confirmPassword = etConfPass?.text.toString()
 
         // check pass
         when{
