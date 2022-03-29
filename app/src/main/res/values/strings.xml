@@ -32,4 +32,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="signed">Signed</string>
     <string name="already_have_an_account_login">Sign In here</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_in">Sign In</string>
 </resources>
