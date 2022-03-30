@@ -98,7 +98,7 @@ class SignUpActivity : AppCompatActivity() {
                 val profileUpdates = userProfileChangeRequest {
                     displayName = theDisplayName
                 }
-                auth.currentUser!!.updatePassword(profileUpdates.toString())
+                auth.currentUser!!.updateProfile(profileUpdates)
                 Log.d("SIGNUP", it.result.toString())
                 Toast.makeText(this, "Successfully Singed Up, Please Login", Toast.LENGTH_SHORT).show()
                 // move into login activity
