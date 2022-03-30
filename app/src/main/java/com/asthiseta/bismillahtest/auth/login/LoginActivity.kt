@@ -3,6 +3,7 @@ package com.asthiseta.bismillahtest.auth.login
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -14,16 +15,16 @@ import com.asthiseta.bismillahtest.ui.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
-    private var tvRedirectSignUp : TextView? = null
-    private var edtEmail : EditText? = null
-    private var edtPass : EditText? = null
-    private var btnLogin : Button? = null
+    private var tvRedirectSignUp: TextView? = null
+    private var edtEmail: EditText? = null
+    private var edtPass: EditText? = null
+    private var btnLogin: Button? = null
 
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     private var loginBinding: ActivityLoginBinding? = null
 
-    private var signUpIntent : Intent? = null
-    private var homeIntent :Intent? = null
+    private var signUpIntent: Intent? = null
+    private var homeIntent: Intent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,18 +36,18 @@ class LoginActivity : AppCompatActivity() {
 
         tvRedirectSignUp = loginBinding!!.tvRedirectSignUp
         edtEmail = loginBinding!!.etEmailAddress
-        edtPass  = loginBinding!!.etPassword
+        edtPass = loginBinding!!.etPassword
         btnLogin = loginBinding!!.btnLogin
 
         //auth object
         auth = FirebaseAuth.getInstance()
 
 
-        btnLogin?.setOnClickListener{
+        btnLogin?.setOnClickListener {
             login()
         }
 
-        tvRedirectSignUp?.setOnClickListener{
+        tvRedirectSignUp?.setOnClickListener {
             startActivity(signUpIntent)
             // using finish() to end the activity
             finish()
@@ -54,16 +55,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        val email = edtEmail?.text.toString()
-        val pass = edtPass?.text.toString()
+        val email = edtEmail?.text.toString().trim()
+        val pass = edtPass?.text.toString().trim()
 
         // check pass
-        when{
-            email.isBlank()->{
+        when {
+            email.isBlank() -> {
                 edtEmail?.error = "Email can't be blank"
                 return
             }
-            pass.isBlank()->{
+            pass.isBlank() -> {
                 edtPass?.error = "Password can't be blank"
                 return
             }
@@ -74,8 +75,10 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
                 startActivity(homeIntent)
                 finish()
-            } else
+            } else {
+                Log.d("LOGIN : ", it.result.toString())
                 Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

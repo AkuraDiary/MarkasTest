@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -56,10 +57,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signUpUser() {
-        var _displayName = etUsername?.text.toString()
-        val email = etEmail?.text.toString()
-        val pass = etPass?.text.toString()
-        val confirmPassword = etConfPass?.text.toString()
+        val theDisplayName = etUsername?.text.toString()
+        val email = etEmail?.text.toString().trim()
+        val pass = etPass?.text.toString().trim()
+        val confirmPassword = etConfPass?.text.toString().trim()
 
         // check pass
         when{
@@ -77,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
                 return
             }
 
-            _displayName.isBlank() || _displayName.length <= 3-> {
+            theDisplayName.isBlank() || theDisplayName.length <= 3-> {
                 etUsername?.error = "This field can't be blank and min 3 character"
                 return
             }
@@ -95,9 +96,10 @@ class SignUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
             if (it.isSuccessful) {
                 val profileUpdates = userProfileChangeRequest {
-                    displayName = _displayName
+                    displayName = theDisplayName
                 }
                 auth.currentUser!!.updatePassword(profileUpdates.toString())
+                Log.d("SIGNUP", it.result.toString())
                 Toast.makeText(this, "Successfully Singed Up, Please Login", Toast.LENGTH_SHORT).show()
                 // move into login activity
                 startActivity(loginIntent)
