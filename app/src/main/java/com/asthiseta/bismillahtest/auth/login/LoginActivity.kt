@@ -60,10 +60,14 @@ class LoginActivity : AppCompatActivity() {
         // check pass
         when{
             email.isBlank()->{
-                error("Email can't be blank")
+                edtEmail?.error = "Email can't be blank"
+                //error()
+                return
             }
             pass.isBlank()->{
-                error("Password can't be blank")
+                edtPass?.error = "Password can't be blank"
+                //error()
+                return
             }
         }
 
@@ -75,6 +79,8 @@ class LoginActivity : AppCompatActivity() {
             } else
                 Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
         }
+
+        //auth.
     }
 
     override fun onDestroy() {
