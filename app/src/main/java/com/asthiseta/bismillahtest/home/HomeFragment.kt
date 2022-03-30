@@ -51,7 +51,7 @@ class HomeFragment : Fragment(), ShowState {
         val actionBar = (activity as AppCompatActivity).supportActionBar
 
         val userAuth = Firebase.auth.currentUser!!
-        actionBar?.title = userAuth.displayName//getString(R.string.auth_usrname)
+        actionBar?.title = userAuth.displayName
         _homeBinding = HomeFragmentBinding.inflate(layoutInflater, container, false)
         return homeBinding.root
     }

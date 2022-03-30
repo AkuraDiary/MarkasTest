@@ -48,8 +48,7 @@ class GalleryFragment :  Fragment(), ShowState {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        val actionBar = (activity as AppCompatActivity).supportActionBar
-        actionBar?.title = getString(R.string.auth_usrname)
+
         _galleryBinding = FragmentGalleryBinding.inflate(layoutInflater, container, false)
         return galleryBinding.root
     }
