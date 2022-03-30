@@ -51,4 +51,9 @@ class MainActivity : AppCompatActivity() {
         navController.navigateUp(appBarConfiguration)
         return super.onSupportNavigateUp()
     }
+
+    override fun onDestroy() {
+        auth.signOut()
+        super.onDestroy()
+    }
 }
