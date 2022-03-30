@@ -76,7 +76,6 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(homeIntent)
                 finish()
             } else {
-                Log.d("LOGIN : ", it.result.toString())
                 Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
             }
         }
