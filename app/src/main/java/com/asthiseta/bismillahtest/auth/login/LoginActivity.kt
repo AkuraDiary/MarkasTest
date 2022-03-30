@@ -77,8 +77,6 @@ class LoginActivity : AppCompatActivity() {
             } else
                 Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
         }
-
-        //auth.
     }
 
     override fun onDestroy() {

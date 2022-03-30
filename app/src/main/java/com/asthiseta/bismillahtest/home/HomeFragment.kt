@@ -18,6 +18,8 @@ import com.asthiseta.bismillahtest.databinding.HomeFragmentBinding
 import com.asthiseta.bismillahtest.util.ShowState
 import com.asthiseta.core.data.Resource
 import com.asthiseta.core.ui.UserAdapter
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.koin.android.ext.android.getKoin
 import org.koin.android.viewmodel.ViewModelParameter
 import org.koin.android.viewmodel.koin.getViewModel
@@ -47,7 +49,9 @@ class HomeFragment : Fragment(), ShowState {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         val actionBar = (activity as AppCompatActivity).supportActionBar
-        actionBar?.title = getString(R.string.auth_usrname)
+
+        val userAuth = Firebase.auth.currentUser!!
+        actionBar?.title = userAuth.displayName//getString(R.string.auth_usrname)
         _homeBinding = HomeFragmentBinding.inflate(layoutInflater, container, false)
         return homeBinding.root
     }

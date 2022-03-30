@@ -12,21 +12,26 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.asthiseta.bismillahtest.R
 import com.asthiseta.bismillahtest.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding : ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
+        //get the auth object
+        auth = FirebaseAuth.getInstance()
+
         setSupportActionBar(mainBinding.toolbar)
         mainBinding.toolbar.apply {
             setBackgroundColor(resources.getColor(R.color.teal_200))
             setTitleTextColor(Color.WHITE)
-            title = getString(R.string.auth_usrname)
+            title = auth.currentUser?.email//getString(R.string.auth_usrname)
         }
 
         navController = findNavController(R.id.nav_host)

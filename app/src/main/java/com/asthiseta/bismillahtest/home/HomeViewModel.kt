@@ -8,7 +8,5 @@ import com.asthiseta.core.domain.usecase.UserUseCase
 
 class HomeViewModel(userUseCase : UserUseCase) : ViewModel()  {
 
-    private var username : MutableLiveData<String> = MutableLiveData()
-
     val users : LiveData<Resource<List<User>>> = userUseCase.getAllUsers().asLiveData()
 }

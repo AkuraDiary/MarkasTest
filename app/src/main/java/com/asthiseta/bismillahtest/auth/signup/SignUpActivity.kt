@@ -13,6 +13,7 @@ import com.asthiseta.bismillahtest.auth.login.LoginActivity
 import com.asthiseta.bismillahtest.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
     private var etEmail : EditText? = null
     private var etConfPass : EditText? = null
     private var etPass : EditText? = null
+    private var etUsername : EditText? = null
     private var tvRedirectLogin : TextView? = null
     private var loginIntent : Intent? = null
 
@@ -39,6 +41,7 @@ class SignUpActivity : AppCompatActivity() {
         etConfPass = binding!!.etSConfPassword
         etPass = binding!!.etSPassword
         tvRedirectLogin = binding!!.tvRedirectLogin
+        etUsername = binding!!.etDisplayName
 
         auth = Firebase.auth
 
@@ -53,6 +56,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signUpUser() {
+        var _displayName = etUsername?.text.toString()
         val email = etEmail?.text.toString()
         val pass = etPass?.text.toString()
         val confirmPassword = etConfPass?.text.toString()
@@ -64,12 +68,17 @@ class SignUpActivity : AppCompatActivity() {
                 return
 
             }
-            pass.isBlank()->{
-                etPass?.error ="Password can't be blank"
+            pass.isBlank()||pass.length < 6->{
+                etPass?.error ="Password can't be blank or less than 6 characters"
                 return
             }
             confirmPassword.isBlank()->{
                 etConfPass?.error = "This field can't be blank"
+                return
+            }
+
+            _displayName.isBlank() || _displayName.length <= 3-> {
+                etUsername?.error = "This field can't be blank and min 3 character"
                 return
             }
         }
@@ -85,6 +94,10 @@ class SignUpActivity : AppCompatActivity() {
         // email and pass in it.
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
             if (it.isSuccessful) {
+                val profileUpdates = userProfileChangeRequest {
+                    displayName = _displayName
+                }
+                auth.currentUser!!.updatePassword(profileUpdates.toString())
                 Toast.makeText(this, "Successfully Singed Up, Please Login", Toast.LENGTH_SHORT).show()
                 // move into login activity
                 startActivity(loginIntent)
