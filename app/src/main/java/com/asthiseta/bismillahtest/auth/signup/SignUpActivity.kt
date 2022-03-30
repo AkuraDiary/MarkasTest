@@ -99,7 +99,6 @@ class SignUpActivity : AppCompatActivity() {
                     displayName = theDisplayName
                 }
                 auth.currentUser!!.updateProfile(profileUpdates)
-                Log.d("SIGNUP", it.result.toString())
                 Toast.makeText(this, "Successfully Singed Up, Please Login", Toast.LENGTH_SHORT).show()
                 // move into login activity
                 startActivity(loginIntent)
