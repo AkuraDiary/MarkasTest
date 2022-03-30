@@ -34,4 +34,5 @@
     <string name="already_have_an_account_login">Log In here</string>
     <string name="login">Login</string>
     <string name="don_t_have_an_account_sign_in">Sign In</string>
+    <string name="txt_username">Username</string>
 </resources>
