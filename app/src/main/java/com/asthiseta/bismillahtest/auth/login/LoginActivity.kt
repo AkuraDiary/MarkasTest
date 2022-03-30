@@ -61,12 +61,10 @@ class LoginActivity : AppCompatActivity() {
         when{
             email.isBlank()->{
                 edtEmail?.error = "Email can't be blank"
-                //error()
                 return
             }
             pass.isBlank()->{
                 edtPass?.error = "Password can't be blank"
-                //error()
                 return
             }
         }

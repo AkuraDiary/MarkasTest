@@ -62,15 +62,15 @@ class SignUpActivity : AppCompatActivity() {
             email.isBlank()->{
                 etEmail?.error = "Email can't be blank"
                 return
-                //error()
+
             }
             pass.isBlank()->{
                 etPass?.error ="Password can't be blank"
-                return //error()
+                return
             }
             confirmPassword.isBlank()->{
                 etConfPass?.error = "This field can't be blank"
-                return//error()
+                return
             }
         }
 
